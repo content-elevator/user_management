@@ -47,8 +47,8 @@ defmodule UserManagementWeb.UserController do
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    user = Accounts.get_user!(id)
+  def delete(conn, _params) do
+    user = Guardian.Plug.current_resource(conn)
 
     with {:ok, %User{}} <- Accounts.delete_user(user) do
       send_resp(conn, :no_content, "")

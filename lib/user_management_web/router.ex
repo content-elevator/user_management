@@ -21,5 +21,6 @@ defmodule UserManagementWeb.Router do
     pipe_through [:api, :jwt_authenticated]
     get "/my_user", UserController, :show
     put "/update", UserController, :update
+    delete "/delete", UserController, :delete
   end
 end
