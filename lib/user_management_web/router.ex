@@ -19,7 +19,7 @@ defmodule UserManagementWeb.Router do
 
   scope "/api/v1", UserManagementWeb do
     pipe_through [:api, :jwt_authenticated]
-
     get "/my_user", UserController, :show
+    put "/update", UserController, :update
   end
 end
