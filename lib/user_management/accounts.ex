@@ -77,6 +77,23 @@ defmodule UserManagement.Accounts do
     |> Repo.update()
   end
 
+  def update_user_profile(%User{} = user, attrs) do
+    user
+    |> User.changeset_profile(attrs)
+    |> Repo.update()
+  end
+
+  def update_user_password(%User{} = user, attrs, old_password) do
+    case username_password_auth(user.username, old_password) do
+      {:ok, user} ->
+        user
+        |> User.changeset_password(attrs)
+        |> Repo.update()
+      _ ->
+        {:error, :forbidden}
+    end
+  end
+
   @doc """
   Deletes a user.
 

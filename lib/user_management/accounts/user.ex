@@ -32,6 +32,24 @@ defmodule UserManagement.Accounts.User do
     |> put_password_hash
   end
 
+  def changeset_profile(user, attrs) do
+    user
+    |> cast(attrs, [:username, :first_name, :last_name, :email])
+    |> validate_required([:username, :first_name, :last_name, :email])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:username)
+    |> unique_constraint(:email)
+  end
+
+  def changeset_password(user, attrs) do
+    user
+    |> cast(attrs, [:password, :password_confirmation])
+    |> validate_required([:password, :password_confirmation])
+    |> validate_length(:password, min: 6)
+    |> validate_confirmation(:password)
+    |> put_password_hash
+  end
+
   defp put_password_hash(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}}

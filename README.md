@@ -2,7 +2,7 @@
 
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
+  * Install dependencies with `mix deps.get`, `mix deps.compile` (run-> cmd /K "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64)
   * Create and migrate your database with `mix ecto.setup`
   * Start Phoenix endpoint with `mix phx.server`
 
