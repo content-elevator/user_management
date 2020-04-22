@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :user_management, UserManagement.Repo,
-  username: "postgres",
+  username: "mac",
   password: "Postgres1234",
   database: "user_management_dev",
   hostname: "localhost",
