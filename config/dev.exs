@@ -1,13 +1,14 @@
 use Mix.Config
 
 # Configure your database
-config :user_management, UserManagement.Repo,
-  username: "a800a853-1d3f-4d0a-825d-f10bf99cad87",
-  password: "pw-389b0441-9ea4-4d40-a096-aa1420f6fd3e",
-  database: "a800a853-1d3f-4d0a-825d-f10bf99cad87",
-  hostname: "postgres-free-tier-1.gigalixir.com",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+config :user_management,
+       UserManagement.Repo,
+       username: "postgres",
+       password: "Postgres1234",
+       database: "user_management_dev",
+       hostname: "localhost",
+       show_sensitive_data_on_connection_error: true,
+       pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -15,12 +16,15 @@ config :user_management, UserManagement.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :user_management, UserManagementWeb.Endpoint,
-  http: [port: 4000],
-  debug_errors: true,
-  code_reloader: true,
-  check_origin: false,
-  watchers: []
+config :user_management,
+       UserManagementWeb.Endpoint,
+       http: [
+         port: 4000
+       ],
+       debug_errors: true,
+       code_reloader: true,
+       check_origin: false,
+       watchers: []
 
 # ## SSL Support
 #
