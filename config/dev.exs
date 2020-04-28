@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :user_management, UserManagement.Repo,
-  username: "mac",
-  password: "Postgres1234",
-  database: "user_management_dev",
-  hostname: "localhost",
+  username: "a800a853-1d3f-4d0a-825d-f10bf99cad87",
+  password: "pw-389b0441-9ea4-4d40-a096-aa1420f6fd3e",
+  database: "a800a853-1d3f-4d0a-825d-f10bf99cad87",
+  hostname: "postgres-free-tier-1.gigalixir.com",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
