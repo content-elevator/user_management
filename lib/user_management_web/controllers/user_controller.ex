@@ -38,11 +38,19 @@ defmodule UserManagementWeb.UserController do
     conn |> render("user.json", user: user)
   end
 
-  def update(conn, %{"user" => user_params}) do
+  def update_profile(conn, %{"user" => user_params}) do
     user = Guardian.Plug.current_resource(conn)
 
-    with {:ok, %User{} = user} <- Accounts.update_user(user, user_params) do
+    with {:ok, %User{} = user} <- Accounts.update_user_profile(user, user_params) do
       #render(conn, "show.json", user: user)
+      conn |> render("user.json", user: user)
+    end
+  end
+
+  def update_password(conn, %{"old_password" => old_password,"user" => user_params}) do
+    user = Guardian.Plug.current_resource(conn)
+
+    with {:ok, %User{} = user} <- Accounts.update_user_password(user, user_params, old_password) do
       conn |> render("user.json", user: user)
     end
   end

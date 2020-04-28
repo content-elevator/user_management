@@ -6,8 +6,8 @@ defmodule UserManagement.AccountsTest do
   describe "users" do
     alias UserManagement.Accounts.User
 
-    @valid_attrs %{email: "some email", first_name: "some first_name", last_name: "some last_name", password_hash: "some password_hash", username: "some username"}
-    @update_attrs %{email: "some updated email", first_name: "some updated first_name", last_name: "some updated last_name", password_hash: "some updated password_hash", username: "some updated username"}
+    @valid_attrs %{email: "mail@yahoo.com", first_name: "some first_name", last_name: "some last_name", password: "some password_hash", password_confirmation: "some password_hash", username: "some username"}
+    @update_attrs %{email: "updated_mail@yahoo.com", first_name: "some updated first_name", last_name: "some updated last_name", password: "some updated password_hash", password_confirmation: "some updated password_hash", username: "some updated username"}
     @invalid_attrs %{email: nil, first_name: nil, last_name: nil, password_hash: nil, username: nil}
 
     def user_fixture(attrs \\ %{}) do
@@ -31,10 +31,10 @@ defmodule UserManagement.AccountsTest do
 
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.email == "some email"
+      assert user.email == "mail@yahoo.com"
       assert user.first_name == "some first_name"
       assert user.last_name == "some last_name"
-      assert user.password_hash == "some password_hash"
+#      assert user.password == "some password_hash"
       assert user.username == "some username"
     end
 
@@ -45,10 +45,10 @@ defmodule UserManagement.AccountsTest do
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
       assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
-      assert user.email == "some updated email"
+      assert user.email == "updated_mail@yahoo.com"
       assert user.first_name == "some updated first_name"
       assert user.last_name == "some updated last_name"
-      assert user.password_hash == "some updated password_hash"
+#      assert user.password == "some updated password_hash"
       assert user.username == "some updated username"
     end
 

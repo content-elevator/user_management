@@ -20,6 +20,12 @@ defmodule UserManagementWeb.FallbackController do
     |> render(:"404")
   end
 
+  def call(conn, {:error, :forbidden}) do
+    conn
+    |> put_status(:forbidden)
+    |> json(%{error: "Wrong password"})
+  end
+
   def call(conn, {:error, :unauthorized}) do
     conn
     |> put_status(:unauthorized)

@@ -5,17 +5,19 @@ defmodule UserManagementWeb.UserControllerTest do
   alias UserManagement.Accounts.User
 
   @create_attrs %{
-    email: "some email",
+    email: "mail@yahoo.com",
     first_name: "some first_name",
     last_name: "some last_name",
-    password_hash: "some password_hash",
+    password: "some password_hash",
+    password_confirmation: "some password_hash",
     username: "some username"
   }
   @update_attrs %{
     email: "some updated email",
     first_name: "some updated first_name",
     last_name: "some updated last_name",
-    password_hash: "some updated password_hash",
+    password: "some updated password_hash",
+    password_confirmation: "some updated password_hash",
     username: "some updated username"
   }
   @invalid_attrs %{email: nil, first_name: nil, last_name: nil, password_hash: nil, username: nil}
@@ -45,10 +47,11 @@ defmodule UserManagementWeb.UserControllerTest do
 
       assert %{
                "id" => id,
-               "email" => "some email",
+               "email" => "mail@yahoo.com",
                "first_name" => "some first_name",
                "last_name" => "some last_name",
-               "password_hash" => "some password_hash",
+               "password" => "password_hash",
+               "password_confirmation" => "password_hash",
                "username" => "some username"
              } = json_response(conn, 200)["data"]
     end
@@ -73,7 +76,8 @@ defmodule UserManagementWeb.UserControllerTest do
                "email" => "some updated email",
                "first_name" => "some updated first_name",
                "last_name" => "some updated last_name",
-               "password_hash" => "some updated password_hash",
+               "password" => "password_hash",
+               "password_confirmation" => "password_hash",
                "username" => "some updated username"
              } = json_response(conn, 200)["data"]
     end
