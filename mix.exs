@@ -44,7 +44,8 @@ defmodule UserManagement.MixProject do
 
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:guardian, "~> 1.0"}
+      {:guardian, "~> 1.0"},
+      {:new_relic_agent, "~> 1.0"}
     ]
   end
 
