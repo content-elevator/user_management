@@ -34,3 +34,7 @@ import_config "#{Mix.env()}.exs"
 config :user_management, UserManagement.Guardian,
   issuer: "user_management",
   secret_key: "vdsNJHUptbte5p55rYvsoKF+UiaZB/Se7ZwFDtox8ZR1kgh41hcl7rnbhubM6OR4"
+
+config :new_relic_agent,
+  app_name: "User Management Elixir App",
+  license_key: "eu01xxa31792eae8c04ac5416a05c87a1d9eNRAL"
