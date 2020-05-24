@@ -35,7 +35,9 @@ jobs:
       - run: mix local.rebar --force  # fetch a copy of rebar (without prompt)
 
       - run: mix deps.get
-      - run: mix ecto.create
+      - run: mix do deps.get, compile
+          #- run: mix ecto.create
+      - run: mix do run
       #- run: mix test
 
 deploy:
