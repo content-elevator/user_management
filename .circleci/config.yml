@@ -31,6 +31,9 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with run:
+      - run: mix local.hex --force  # install Hex locally (without prompt)
+      - run: mix local.rebar --force  # fetch a copy of rebar (without prompt)
+
       - run: mix deps.get
       - run: mix ecto.create
       #- run: mix test
