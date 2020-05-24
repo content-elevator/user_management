@@ -40,17 +40,17 @@ jobs:
       - run: mix do run
       #- run: mix test
 
-deploy:
-  docker:
-    - image: circleci/python:3.6.4
+  deploy:
+    docker:
+      - image: circleci/python:3.6.4
 
-  working_directory: ~/repo
+    working_directory: ~/repo
 
-  steps:
-    - checkout
-    - run: echo y | sudo pip install gigalixir
-    - run: echo Y | gigalixir login --email "daniftincaalexandru@gmail.com" --password "gigalixir1234"
-    - run: git remote add gigalixir https://git.gigalixir.com/elixir-user-management.git
-    - run: git push gigalixir master
-    - run: gigalixir ps
-    - run: gigalixir run mix ecto.migrate
+    steps:
+      - checkout
+      - run: echo y | sudo pip install gigalixir
+      - run: echo Y | gigalixir login --email "daniftincaalexandru@gmail.com" --password "gigalixir1234"
+      - run: git remote add gigalixir https://git.gigalixir.com/elixir-user-management.git
+      - run: git push gigalixir master
+      - run: gigalixir ps
+      - run: gigalixir run mix ecto.migrate
