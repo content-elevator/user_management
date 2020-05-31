@@ -126,7 +126,7 @@ defmodule UserManagement.Accounts do
   def token_sign_in(username, password) do
     case username_password_auth(username, password) do
       {:ok, user} ->
-        Guardian.encode_and_sign(user, %{aud: "user_management, analysis_history, analysis"})
+        Guardian.encode_and_sign(user, %{aud: "user_management,analysis_history,analysis"})
       _ ->
         {:error, :unauthorized}
     end
